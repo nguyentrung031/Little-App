@@ -1,34 +1,18 @@
 import React, { Component } from 'react';
 
-class Library extends Component {
+class Library extends Component { g
+    getItem = () =>{
+       console.log(this.props.Id);
+       
+    } 
     render() {
         return (
-            <div className="col-md-3">
-                <div className="img">
-                    <img src="https://littlealchemy2.com/static/icons/4.svg" alt="" />
-                    <div className="title">
-                        aria
-                    </div>
+            <div className="img">
+                <img onClick={() => this.getItem()} src={this.props.Image} alt="" />
+                <div className="title">
+                    {this.props.Name}
                 </div>
-                <div className="img">
-                    <img src="https://littlealchemy2.com/static/icons/3.svg" alt="" />
-                    <div className="title">
-                        earth
-                    </div>
-                </div>
-                <div className="img">
-                    <img src="https://littlealchemy2.com/static/icons/2.svg" alt="" />
-                    <div className="title">
-                        fire
-                    </div>
-                </div>
-                <div className="img">
-                    <img src="https://littlealchemy2.com/static/icons/1.svg" alt="" />
-                    <div className="title">
-                        water
-                    </div>
-                </div>
-             </div>
+            </div> 
         );
     }
 }
