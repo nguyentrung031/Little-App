@@ -4,18 +4,23 @@
 }
 html,body .wrapper .row{
   width: 100%;
-  height: 100vh;
   background-color: #260026;
+  display: inline-block;
 }
 html,body{
   overflow-x: hidden;
 }
+
 .wrapper{
   position: relative;
+}
+.col-md-9{
+  height: 100%;
 }
 .col-md-3{
   background-color: #460b31;
   overflow: hidden;
+  float: right;
 }
 .img img{
   width: 80px;

@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import Library from './Library';
-import data from './../data.json'
+import DropTargets from './DropTarget';
+import DragSources from './DragSource';
+import A from './../constants/Element.js';
 
 class Container extends Component {
     render() {
+        var element = A.elements
         return (
             <div className="container-fluid p-0 wrapper ">
                 <div className="row">
-                    <div className="col-md-9">
-                    </div>
+                    <DropTargets />
                     <div className="col-md-3">
                         {
-                            data.map((value,key) =>{
+                            element.map((value,key) =>{
                                 return(
-                                    <Library key={key} Id={value.id} Name ={value.name} Image={value.img}/>
+                                    <DragSources key={key} type={value.type} image_url={value.image_url} />     
                                 )
                             })
                         }
-
                     </div>
                 </div>
             </div>
@@ -25,3 +25,4 @@ class Container extends Component {
     }
 }
 export default Container;
+
