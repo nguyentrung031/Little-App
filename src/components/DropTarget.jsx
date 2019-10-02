@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 
 var dropField = {
-  drop: function (props, monitor) {
-    var item = monitor.getItem();
-    var delta = monitor.getDifferenceFromInitialOffset();
-      item.left = Math.round(item.left + delta.x);
-      item.top = Math.round(item.top + delta.y);
-
-  }
+  drop(props, monitor, component) {
+    if (monitor.didDrop()) {
+      return;
+    }
+  },
+  
 };
 
 function collect(connect, monitor) {
@@ -20,13 +19,14 @@ function collect(connect, monitor) {
   }
 class DropTargets extends Component {
     render() {
-      var connectDropTarget = this.props.connectDropTarget;
+      const { connectDropTarget, hovered} = this.props;
+      var backgroud = hovered ? '#460b31' : 1;
         return connectDropTarget(
-            <div className="col-md-9">
-              
-             </div>
+               <div className='img-drop' style={{background: backgroud}}>
+                  <img src={this.props.image_url} alt=""/>
+              </div>
         );
     }
 }
 
-export default DropTarget('Element', dropField, collect)(DropTargets);
+export default DropTarget('element', dropField, collect)(DropTargets);

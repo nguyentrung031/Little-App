@@ -5,27 +5,33 @@ var dragResource = {
   beginDrag : function (props) {
     console.log('hehe');
     return {
+      data: props.data,
       type:props.type,
       image_url:props.image_url,
+      id: props.id
     };
   },
-
+  endDrag(props, monitor, component) {
+    if (monitor.didDrop()) {
+      return;
+    }
+  }
 };
 
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
     isDragging: monitor.isDragging()
   }
 }
-
-
 class DragSources extends Component { 
     render() {
-      var connectDragSource = this.props.connectDragSource;
+      const { isDragging, connectDragSource} = this.props;
+      var opicity = isDragging ? 0 : 1;
         return connectDragSource(
-            <div className="img">
-                <img src={this.props.image_url} alt="" />
+            <div className="img" style={{opicity}}>
+                <img src={this.props.image_url} alt="element" />
                 <div className="title">
                     {this.props.type}
                 </div>
@@ -33,4 +39,4 @@ class DragSources extends Component {
         );
     }
 }
-export default DragSource("Element", dragResource, collect)(DragSources);
+export default DragSource("element", dragResource, collect)(DragSources);
