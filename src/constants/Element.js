@@ -1,14 +1,14 @@
-  var A = {
-    combine: [
-      {condition: "Air + Air", result: "Pressure"},
-      {condition: "Earth + Air", result: "Dust"},
-      {condition: "Earth + Earth", result: "Pressure"},
-      {condition: "Fire + Earth", result: "Lava"},
-      {condition: "Water + Air", result: "Rain"},
-      {condition: "Earth + Water", result: "Mud"},
-      {condition: "Water + Fire", result: "Steam"},
-      {condition: "Water + Water", result: "Puddle"}
-    ],
+  var Data = {
+    // combine: [
+    //   {condition: "Air + Air", result: "Pressure"},
+    //   {condition: "Earth + Air", result: "Dust"},
+    //   {condition: "Earth + Earth", result: "Pressure"},
+    //   {condition: "Fire + Earth", result: "Lava"},
+    //   {condition: "Water + Air", result: "Rain"},
+    //   {condition: "Earth + Water", result: "Mud"},
+    //   {condition: "Water + Fire", result: "Steam"},
+    //   {condition: "Water + Water", result: "Puddle"}
+    // ],
     drag: [
       {id: "0", type: "Water", image_url: "https://littlealchemy2.com/static/icons/1.svg"},
       {id: "1", type: "Earth", image_url: "https://littlealchemy2.com/static/icons/3.svg"},
@@ -29,4 +29,4 @@
     //   {id: "10",  type: "Puddle", image_url: "https://littlealchemy2.com/static/icons/511.svg"}
     ]
   };
-  export default A
+  export default Data

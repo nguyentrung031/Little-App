@@ -15,6 +15,8 @@ var dragResource = {
     if (monitor.didDrop()) {
       return;
     }
+    console.log(props.id);
+    return props.changedrop(props.id);
   }
 };
 

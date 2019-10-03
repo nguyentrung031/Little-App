@@ -6,6 +6,8 @@ var dropField = {
     if (monitor.didDrop()) {
       return;
     }
+    console.log(props.id);
+    return props.updatedrag(props.id);
   },
   
 };
@@ -20,7 +22,7 @@ function collect(connect, monitor) {
 class DropTargets extends Component {
     render() {
       const { connectDropTarget, hovered} = this.props;
-      var backgroud = hovered ? '#460b31' : 1;
+      const backgroud = hovered ? '#460b31' : 1;
         return connectDropTarget(
                <div className='img-drop' style={{background: backgroud}}>
                   <img src={this.props.image_url} alt=""/>
