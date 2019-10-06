@@ -12,7 +12,7 @@ var dragResource = {
     };
   },
   endDrag(props, monitor, component) {
-    if (monitor.didDrop()) {
+    if (!monitor.didDrop()) {
       return;
     }
     console.log(props.id);
@@ -30,9 +30,9 @@ function collect(connect, monitor) {
 class DragSources extends Component { 
     render() {
       const { isDragging, connectDragSource} = this.props;
-      var opicity = isDragging ? 0 : 1;
+      var opacity = isDragging ? 0 : 1;
         return connectDragSource(
-            <div className="img" style={{opicity}}>
+            <div className="img" style={{opacity}}>
                 <img src={this.props.image_url} alt="element" />
                 <div className="title">
                     {this.props.type}

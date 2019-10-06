@@ -3,17 +3,19 @@ import DropTargets from './DropTarget';
 import DragSources from './DragSource';
 import Data from './../constants/Element.js';
 import {connect} from 'react-redux';
-class Container extends Component {
+class Container extends Component {    
     changedrop = (idDrag) =>{
+        // console.log(this.props.changedropdrap(idDrag));
         this.props.changedropdrap(idDrag);
     }
-    updatedrag = (idDrop) => {
+    updatedrag = idDrop => {
+        // console.log(this.props.changeUpdate(idDrop));
         this.props.changeUpdate(idDrop);
-   
     }
     render() {
         const element = Data.elements;
         const drap= Data.drag;
+        // const {isDrop} =this.props;
         return (
             <div className="container-fluid p-0 wrapper ">
                 <div className="row">
@@ -21,7 +23,7 @@ class Container extends Component {
                         {
                             drap.map((value,key) =>{
                                 return(
-                                    <DropTargets key={key} id={value.id} data={value} type={value.type} image_url={value.image_url} updatedrag={(id) => this.updatedrag(id)} />
+                                    <DropTargets key={key} id={value.id} data={value} type={value.type} image_url={value.image_url} updatedrag ={(id) => this.updatedrag(id)} />
                                 )
                             })
                         }
@@ -43,7 +45,7 @@ class Container extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        // isDrop: state.isDrop
+        isDrop: state.isDrop
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

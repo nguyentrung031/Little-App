@@ -6,8 +6,8 @@ var dropField = {
     if (monitor.didDrop()) {
       return;
     }
-    console.log(props.id);
-    return props.updatedrag(props.id);
+    console.log(props.data.id);
+    return props.updatedrag(props.data.id);
   },
   
 };
